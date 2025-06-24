@@ -1,73 +1,82 @@
-# Welcome to your Lovable project
+# EVENT-BRITE
 
-## Project info
+A modern event management web application built with Vite, TypeScript, React, shadcn-ui, and Tailwind CSS.
 
-**URL**: https://lovable.dev/projects/e62e2c5e-dac9-4b00-ae9f-5c9af13af1cc
+---
 
-## How can I edit this code?
+## Project Info
 
-There are several ways of editing your application.
+**Live Project:** [Lovable Project](https://lovable.dev/projects/e62e2c5e-dac9-4b00-ae9f-5c9af13af1cc)
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e62e2c5e-dac9-4b00-ae9f-5c9af13af1cc) and start prompting.
+## Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
+- Node.js & npm (recommended: use [nvm](https://github.com/nvm-sh/nvm#installing-and-updating))
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+### Local Development
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# 1. Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# 2. Navigate to the project directory
+cd EVENT-BRITE
 
-# Step 3: Install the necessary dependencies.
-npm i
+# 3. Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# 4. Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Editing the Code
 
-**Use GitHub Codespaces**
+You can edit this project in several ways:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### 1. Using Lovable
+- Visit the [Lovable Project](https://lovable.dev/projects/e62e2c5e-dac9-4b00-ae9f-5c9af13af1cc) and start prompting.
+- Changes made via Lovable are committed automatically.
 
-## What technologies are used for this project?
+### 2. Using Your Preferred IDE
+- Clone the repo and push changes; they will be reflected in Lovable.
 
-This project is built with:
+### 3. Editing Directly on GitHub
+- Navigate to the file, click the pencil icon, make changes, and commit.
 
+### 4. Using GitHub Codespaces
+- Click the "Code" button, select "Codespaces", and launch a new codespace.
+- Edit and commit changes directly in the codespace.
+
+---
+
+## Technologies Used
 - Vite
 - TypeScript
 - React
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/e62e2c5e-dac9-4b00-ae9f-5c9af13af1cc) and click on Share -> Publish.
+## Deployment
 
-## Can I connect a custom domain to my Lovable project?
+To deploy, open [Lovable](https://lovable.dev/projects/e62e2c5e-dac9-4b00-ae9f-5c9af13af1cc) and click on Share → Publish.
 
-Yes, you can!
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Custom Domain
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+To connect a custom domain:
+- Go to Project > Settings > Domains in Lovable
+- Click "Connect Domain"
+- [Read the step-by-step guide](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+---
+
+## License
+
+This project is licensed under the MIT License.
