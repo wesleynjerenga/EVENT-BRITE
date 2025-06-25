@@ -4,9 +4,7 @@ A modern event management web application built with Vite, TypeScript, React, sh
 
 ---
 
-## Project Info
 
-**Live Project:** [Lovable Project](https://lovable.dev/projects/e62e2c5e-dac9-4b00-ae9f-5c9af13af1cc)
 
 ---
 
@@ -37,9 +35,7 @@ npm run dev
 
 You can edit this project in several ways:
 
-### 1. Using Lovable
-- Visit the [Lovable Project](https://lovable.dev/projects/e62e2c5e-dac9-4b00-ae9f-5c9af13af1cc) and start prompting.
-- Changes made via Lovable are committed automatically.
+
 
 ### 2. Using Your Preferred IDE
 - Clone the repo and push changes; they will be reflected in Lovable.
@@ -62,18 +58,13 @@ You can edit this project in several ways:
 
 ---
 
-## Deployment
 
-To deploy, open [Lovable](https://lovable.dev/projects/e62e2c5e-dac9-4b00-ae9f-5c9af13af1cc) and click on Share → Publish.
 
 ---
 
 ## Custom Domain
 
-To connect a custom domain:
-- Go to Project > Settings > Domains in Lovable
-- Click "Connect Domain"
-- [Read the step-by-step guide](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
 
 ---
 
