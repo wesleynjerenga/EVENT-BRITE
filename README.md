@@ -4,10 +4,6 @@ A modern event management web application built with Vite, TypeScript, React, sh
 
 ---
 
-
-
----
-
 ## Getting Started
 
 ### Prerequisites
@@ -35,15 +31,13 @@ npm run dev
 
 You can edit this project in several ways:
 
+### 1. Using Your Preferred IDE
+- Clone the repository, make your changes locally, and push updates to your fork or branch.
 
-
-### 2. Using Your Preferred IDE
-- Clone the repo and push changes; they will be reflected in Lovable.
-
-### 3. Editing Directly on GitHub
+### 2. Editing Directly on GitHub
 - Navigate to the file, click the pencil icon, make changes, and commit.
 
-### 4. Using GitHub Codespaces
+### 3. Using GitHub Codespaces
 - Click the "Code" button, select "Codespaces", and launch a new codespace.
 - Edit and commit changes directly in the codespace.
 
@@ -58,16 +52,12 @@ You can edit this project in several ways:
 
 ---
 
-
-
----
-
 ## Custom Domain
-
-
 
 ---
 
 ## License
 
 This project is licensed under the MIT License.
+
+```
