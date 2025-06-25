@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Layout from '@/components/Layout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -11,10 +10,16 @@ import { useAuth } from '@/contexts/AuthContext';
 import { mockEvents, categories } from '@/data/mockData';
 import { Calendar, Users, Ticket, TrendingUp, Plus, Edit, Trash2 } from 'lucide-react';
 import { toast } from 'sonner';
+import { v4 as uuidv4 } from 'uuid';
+
+const CLOUDINARY_UPLOAD_PRESET = 'unsigned_preset'; // TODO: Replace with your unsigned preset
+const CLOUDINARY_CLOUD_NAME = 'demo'; // TODO: Replace with your Cloudinary cloud name
+const CLOUDINARY_URL = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`;
 
 const AdminDashboard = () => {
   const { user } = useAuth();
   const [isCreating, setIsCreating] = useState(false);
+  const [events, setEvents] = useState([...mockEvents]);
   const [newEvent, setNewEvent] = useState({
     title: '',
     description: '',
@@ -27,6 +32,7 @@ const AdminDashboard = () => {
     totalTickets: '',
     image: ''
   });
+  const [imageUploading, setImageUploading] = useState(false);
 
   if (!user?.isAdmin) {
     return (
@@ -39,14 +45,46 @@ const AdminDashboard = () => {
     );
   }
 
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setImageUploading(true);
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+    try {
+      const res = await fetch(CLOUDINARY_URL, {
+        method: 'POST',
+        body: formData
+      });
+      const data = await res.json();
+      if (data.secure_url) {
+        setNewEvent((prev) => ({ ...prev, image: data.secure_url }));
+        toast.success('Image uploaded!');
+      } else {
+        toast.error('Image upload failed');
+      }
+    } catch (err) {
+      toast.error('Image upload error');
+    } finally {
+      setImageUploading(false);
+    }
+  };
+
   const handleCreateEvent = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsCreating(true);
-    
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
+      const eventToAdd = {
+        ...newEvent,
+        id: uuidv4(),
+        price: parseFloat(newEvent.price),
+        totalTickets: parseInt(newEvent.totalTickets, 10),
+        ticketsAvailable: parseInt(newEvent.totalTickets, 10),
+        organizer: user?.name || 'Admin',
+        featured: false
+      };
+      setEvents((prev) => [eventToAdd, ...prev]);
       toast.success('Event created successfully!');
       setNewEvent({
         title: '',
@@ -67,9 +105,14 @@ const AdminDashboard = () => {
     }
   };
 
+  const handleDeleteEvent = (id: string) => {
+    setEvents((prev) => prev.filter((event) => event.id !== id));
+    toast.success('Event deleted');
+  };
+
   // Mock analytics data
   const analyticsData = {
-    totalEvents: mockEvents.length,
+    totalEvents: events.length,
     totalTicketsSold: 2847,
     totalRevenue: 156789,
     activeUsers: 1234
@@ -159,7 +202,7 @@ const AdminDashboard = () => {
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  {mockEvents.map((event) => (
+                  {events.map((event) => (
                     <div key={event.id} className="flex items-center justify-between p-4 border rounded-lg">
                       <div className="flex items-center space-x-4">
                         <img 
@@ -179,7 +222,7 @@ const AdminDashboard = () => {
                         <Button size="sm" variant="outline">
                           <Edit className="h-4 w-4" />
                         </Button>
-                        <Button size="sm" variant="outline" className="text-red-600 hover:text-red-700">
+                        <Button size="sm" variant="outline" className="text-red-600 hover:text-red-700" onClick={() => handleDeleteEvent(event.id)}>
                           <Trash2 className="h-4 w-4" />
                         </Button>
                       </div>
@@ -297,20 +340,23 @@ const AdminDashboard = () => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium mb-2">Event Image URL</label>
+                    <label className="block text-sm font-medium mb-2">Event Image</label>
                     <Input
-                      type="url"
-                      value={newEvent.image}
-                      onChange={(e) => setNewEvent({...newEvent, image: e.target.value})}
-                      placeholder="https://example.com/image.jpg"
-                      required
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageUpload}
+                      disabled={imageUploading}
                     />
+                    {imageUploading && <p className="text-xs text-blue-600 mt-1">Uploading...</p>}
+                    {newEvent.image && (
+                      <img src={newEvent.image} alt="Preview" className="mt-2 w-32 h-32 object-cover rounded" />
+                    )}
                   </div>
 
                   <Button 
                     type="submit" 
                     className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
-                    disabled={isCreating}
+                    disabled={isCreating || imageUploading}
                   >
                     {isCreating ? (
                       <div className="flex items-center">
@@ -361,7 +407,7 @@ const AdminDashboard = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    {mockEvents.slice(0, 3).map((event) => (
+                    {events.slice(0, 3).map((event) => (
                       <div key={event.id} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
                         <div>
                           <p className="font-medium">{event.title}</p>
