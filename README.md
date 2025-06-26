@@ -31,6 +31,7 @@ npm run dev
 - CRUD functionality
 
 **Development Workflow**
+
 Development followed a vertical slice approach: each feature was built end-to-end across the stack before moving on to the next. This ensured:
 
 - Minimal rework between frontend and backend
@@ -54,4 +55,5 @@ This project is built with:
 - Josiah
 - Mohammed
 
-
+## License
+This project is under the [MIT License](LICENSE).
