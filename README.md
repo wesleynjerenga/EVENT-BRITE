@@ -22,22 +22,22 @@ npm i
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+**Project Features**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- User authentication
+- Full-stack architecture: Flask backend + React frontend
+- Three+ client-side routes with React Router
+- API integration
+- CRUD functionality
 
-**Use GitHub Codespaces**
+**Development Workflow**
+Development followed a vertical slice approach: each feature was built end-to-end across the stack before moving on to the next. This ensured:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- Minimal rework between frontend and backend
+- Faster testing and feedback loops
+- Working features at each stage of the build
 
 ## Technologies used for this project
-
 This project is built with:
 
 - Vite
@@ -46,6 +46,12 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
+## Authors
+- Wesley
+- Isaac
+- Faustin
+- Alicia
+- Josiah
+- Mohammed
 
 
