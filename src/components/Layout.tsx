@@ -121,7 +121,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 EventHub. All rights reserved.</p>
+            <p>&copy; 2025 EventHub. All rights reserved.</p>
+            <p>art by moha</p>
           </div>
         </div>
       </footer>
