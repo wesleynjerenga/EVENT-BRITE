@@ -38,7 +38,8 @@ Development followed a vertical slice approach: each feature was built end-to-en
 - Faster testing and feedback loops
 - Working features at each stage of the build
 
-[https://github.com/wesleynjerenga/backend-for-event-brite](EventBrite Backend)
+EventBrite Backend
+[https://github.com/wesleynjerenga/backend-for-event-brite] 
 
 ## Technologies used for this project
 This project is built with:
